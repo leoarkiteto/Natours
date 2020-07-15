@@ -1,0 +1,28 @@
+{
+  "name": "natours-float-layout",
+  "version": "1.0.0",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --output-styled expanded src/scss/main.scss -o dist/css",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*.css",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
+    "server": "live-server",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "build:js": "npm run uglify",
+    "watch:css": "onchange 'src/scss/**/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'src/js/*.js' -- npm run build:js",
+    "watch:all": "parallelshell 'npm run server' ''npm run watch:css' 'npm run watch:js'"
+  },
+  "keywords": [],
+  "author": "Leo Franca",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.0.2",
+    "parallelshell": "^3.0.2",
+    "postcss-cli": "^7.1.1",
+    "uglify-js": "^3.10.0"
+  }
+}
