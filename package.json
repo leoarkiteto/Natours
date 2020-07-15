@@ -4,7 +4,7 @@
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass --output-styled expanded src/scss/main.scss -o dist/css",
+    "scss": "node-sass --output-styled expanded src/scss/main.scss -o dist/css -w",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*.css",
     "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
     "server": "live-server",
